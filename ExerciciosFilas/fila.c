@@ -5,25 +5,12 @@
 /* corpo das funcoes que possuem assinatura em lsita.h */
 
 void LerProduto(TProduto *x) { //passando por referencia -> alteraçoes afetam fora da funcao
-  printf("\ndigite o nome: ");
-  fflush(stdin);
-  fgets(x->nome, 100, stdin);
   printf("\ndigite o codigo: ");
-  fflush(stdin);
   scanf("%d", &x->codigo);
-  printf("\ndigite a quantidade: ");
-  fflush(stdin);
-  scanf("%d", &x->quantidade);
-  printf("\ndigite o preco: ");
-  fflush(stdin);
-  scanf("%f", &x->preco);
 }
 
 void ImprimirProduto(TProduto x) { // passagem por valor
-  printf("Produto: %s", x.nome);
   printf("Codigo: %d\n", x.codigo);
-  printf("Quantidade: %d\n", x.quantidade);
-  printf("Preco: %.2f\n", x.preco);
   printf("\n-------------------------------\n");
 }
 
@@ -131,3 +118,4 @@ void Liberar(TFila* Fila){
 	}
 	free(aux.frente);
 }
+
