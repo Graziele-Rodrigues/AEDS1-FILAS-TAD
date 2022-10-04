@@ -35,10 +35,11 @@ void MENU(TFila *Fila){
             case 2:
                  printf("\nDigite o codigo do produto desejado:");
                  scanf("%d", &valor.codigo);
-                 if ((Pesquisar(valor, *Fila) != NULL)) {
+                 valor = Pesquisar(Fila, valor);
+                 if (valor.codigo != -1) {
                     printf("\nItem pesquisado com sucesso\n");
                     printf("\n#############################\n");
-                    ImprimirProduto((Pesquisar(valor, *Fila))->prox->item);
+                    ImprimirProduto(valor);
                     } else {
                         printf("\nItem nao encontrado\n");
                     }

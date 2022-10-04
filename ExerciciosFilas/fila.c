@@ -11,7 +11,6 @@ void LerProduto(TProduto *x) { //passando por referencia -> alteraçoes afetam f
 
 void ImprimirProduto(TProduto x) { // passagem por valor
   printf("Codigo: %d\n", x.codigo);
-  printf("\n-------------------------------\n");
 }
 
 void FFVazia(TFila *Fila){
@@ -90,16 +89,31 @@ void Imprimir2(TFila *F1){
 }
 
 
-TCelula *Pesquisar(TProduto Item, TFila Fila) {
-  TCelula *Aux;
-  Aux = Fila.frente;
-  while (Aux->prox != NULL) {
-    if (Aux->prox->item.codigo == Item.codigo) {
-      return Aux;
+TProduto Pesquisar(TFila *F1, TProduto x){
+  TFila F2;
+  FFVazia(&F2);
+  TProduto y, z;
+  int flag=0;
+  while(!Vazia(*F1)){
+    Desenfileirar(F1, &y);
+    Enfileirar(y, &F2);
+    if(y.codigo == x.codigo){
+      flag = 1;
+      z=y;
     }
-    Aux = Aux->prox;
   }
-  return NULL;
+
+  while(!Vazia(F2)){
+    Desenfileirar(&F2, &y);
+    Enfileirar(y, F1);
+  }
+  if(flag==1){
+    return z;
+  }
+  else{
+    z.codigo=-1;
+    return z;
+  }
 }
 
 
@@ -118,4 +132,3 @@ void Liberar(TFila* Fila){
 	}
 	free(aux.frente);
 }
-

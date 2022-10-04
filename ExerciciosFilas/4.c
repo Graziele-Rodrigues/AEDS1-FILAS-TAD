@@ -10,7 +10,8 @@ void Interseccao(TFila *F1, TFila* F2, TFila* F3){
 	while (!Vazia(*F1)){
 		Desenfileirar(F1, &x);
 		Enfileirar(x, &aux);
-		if (Pesquisar(x, *F2) != NULL){
+        x = Pesquisar(F2, x);
+		if ( x.codigo != -1){
 			Enfileirar(x, F3);
 		}
 	}

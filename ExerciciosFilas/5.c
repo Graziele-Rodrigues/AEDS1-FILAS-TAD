@@ -4,13 +4,14 @@
 
 
 void Diferenca(TFila *F1, TFila* F2, TFila* F3){
-	TProduto x;
+	TProduto x, y;
 	TFila aux;
 	FFVazia(&aux);
 	while (!Vazia(*F1)){
 		Desenfileirar(F1, &x);
 		Enfileirar(x, &aux);
-		if (Pesquisar(x, *F2) == NULL){
+        y = Pesquisar(F2, x);
+		if (y.codigo == -1){
 			Enfileirar(x, F3);
 		}
 	}
@@ -20,7 +21,6 @@ void Diferenca(TFila *F1, TFila* F2, TFila* F3){
 	}
 	Liberar(&aux);
 }
-
 
 
 int main(){

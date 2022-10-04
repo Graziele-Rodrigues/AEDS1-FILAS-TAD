@@ -38,7 +38,7 @@ void Enfileirar(TProduto x, TFila *Fila);
 void Desenfileirar(TFila *Fila, TProduto *Item);
 void Imprimir(TFila *Fila);
 void Imprimir2(TFila *F1);
-TCelula *Pesquisar(TProduto Item, TFila Fila);
+TProduto Pesquisar(TFila *F1, TProduto x);
 void Liberar(TFila *Fila);
 
 
